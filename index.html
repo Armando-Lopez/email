@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <title>Sending Mail</title>
+  <meta name="referrer" content="origin">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+
+<body>
+  <form method="post">
+    <input type="button" value="Send Mail" onclick="sendEmail()" />
+  </form>
+  <script type="text/javascript">
+    async function sendEmail() {
+      const response = await fetch('https://formsubmit.co/ajax/lopexdiego5@gmail.com', {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        redirect: 'follow', // manual, *follow, error
+        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: {
+          name: "FormSubmit",
+          message: "I'm from Devro LABS"
+        }// body data type must match "Content-Type" header
+      });
+      const data = await response.json(); // parses JSON response into native JavaScript objects
+      console.log(data)
+    }
+    
+      // Email.send({
+      //   Host: "smtp.gmail.com",
+      //   Username: "lopexdiego5@gmail.com",
+      //   Password: "lopex3127845446",
+      //   To: 'lopexdiego5@gmail.com',
+      //   From: "lopexdiego5@gmail.com",
+      //   Subject: "Sending Email using javascript",
+      //   Body: "Well that was easy!!",
+      //   // Attachments: [
+      //   //   {
+      //   //     name: "File_Name_with_Extension",
+      //   //     path: "Full Path of the file"
+      //   //   }]
+      // })
+      //   .then(function (message) {
+      //     alert("Mail has been sent successfully")
+      //   })
+  </script>
+</body>
+
+</html>
